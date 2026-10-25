@@ -1,0 +1,108 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 40 20% 98%; /* Warm newsprint paper #faf9f5 */
+    --foreground: 0 0% 10%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 10%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 10%;
+
+    --primary: 0 0% 10%;
+    --primary-foreground: 40 20% 98%;
+
+    --secondary: 40 10% 95%;
+    --secondary-foreground: 0 0% 10%;
+
+    --muted: 40 10% 92%;
+    --muted-foreground: 0 0% 40%;
+
+    --accent: 0 72% 38%; /* Deep editorial crimson #a82323 */
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 72% 38%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 0 0% 86%;
+    --input: 0 0% 86%;
+    --ring: 0 0% 10%;
+
+    --radius: 0px; /* Crisp editorial cut */
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-[#faf9f5] text-[#171717] font-sans antialiased;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  }
+  h1, h2, h3, h4 {
+    font-family: 'Playfair Display', Georgia, serif;
+    letter-spacing: -0.02em;
+  }
+}
+
+/* Luxury Editorial Design Utilities */
+.font-editorial-serif {
+  font-family: 'Playfair Display', Georgia, serif;
+}
+
+.font-editorial-sans {
+  font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+}
+
+.font-editorial-mono {
+  font-family: 'JetBrains Mono', monospace;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+/* Classic Magazine Double Hairline Rule */
+.editorial-double-rule {
+  border-top: 3px double #171717;
+}
+
+.editorial-rule-b {
+  border-bottom: 1px solid #e5e5e0;
+}
+
+.editorial-rule-t {
+  border-top: 1px solid #e5e5e0;
+}
+
+/* Editorial Drop-Cap / First Letter */
+.editorial-dropcap::first-letter {
+  font-family: 'Playfair Display', Georgia, serif;
+  float: left;
+  font-size: 3.5rem;
+  line-height: 0.8;
+  padding-top: 4px;
+  padding-right: 8px;
+  padding-bottom: 2px;
+  font-weight: 700;
+  color: #171717;
+}
+
+/* Subtle Editorial Newsprint Texture Overlay */
+.editorial-paper-bg {
+  background-color: #faf9f5;
+  background-image: radial-gradient(rgba(0, 0, 0, 0.03) 1px, transparent 0);
+  background-size: 24px 24px;
+}
+
+/* Hide scrollbar across Chrome, Safari, Opera, Edge, Firefox */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none; /* IE & Edge */
+  scrollbar-width: none; /* Firefox */
+}
