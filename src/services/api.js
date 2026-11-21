@@ -1,14 +1,18 @@
 import axios from 'axios'
 
-export const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:5006/api'
+export const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000/api'
 
-// Helper to resolve uploaded image filenames (e.g. 'bike-123.png') to full backend URL
+// Helper to resolve uploaded image filenames or frontend public assets
 export const getImageUrl = (image) => {
   if (!image) return ''
   if (image.startsWith('http://') || image.startsWith('https://') || image.startsWith('data:')) {
     return image
   }
-  const backendBase = (import.meta.env.VITE_API_URL || 'http://localhost:5006/api').replace(/\/api\/?$/, '')
+  // If it's a frontend public asset (e.g. /images/models/..., /images/zoom/...)
+  if (image.startsWith('/images/') || image.startsWith('images/')) {
+    return image.startsWith('/') ? image : `/${image}`
+  }
+  const backendBase = (import.meta.env.VITE_API_URL || 'http://localhost:5000/api').replace(/\/api\/?$/, '')
   const cleanPath = image.startsWith('/') ? image : `/${image}`
   return `${backendBase}${cleanPath.startsWith('/uploads') ? cleanPath : `/uploads${cleanPath}`}`
 }
